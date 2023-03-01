@@ -9,6 +9,6 @@ True		# Is the polymer confined? (T or F)
 True		# Is the active force only on the first and last beads?
 1000000		# Number of BD conformations saved (num_save_bd)
 .01		# Time between save points (time_save_bd)
-True	        # Set to true if loading from a file (from_file)
+False	        # Set to true if loading from a file (from_file)
 9934		# Loaded file
-../confined_fa_0	# Output directory location (output_dir)
+../output	# Output directory location (output_dir)
