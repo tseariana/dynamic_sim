@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="dffe23b4-8bea-47ca-a3e9-1d4cc6547c09" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../notes/simulation.cls" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../notes/twlc-derive.aux" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../notes/twlc-derive.bcf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../notes/twlc-derive.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../notes/twlc-derive.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../notes/twlc-derive.run.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../notes/twlc-derive.synctex.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../notes/twlc-derive.tex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test/calcg.m" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test/data/g2.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test/data/g3.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test/data/g4.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test/data/g5.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test/data/g6.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test/data/temp.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test/gkwlc.m" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test/gwlc.m" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/util/calc_twist.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test/dist_test.m" beforeDir="false" afterPath="$PROJECT_DIR$/../test/dist_test.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bd/bd_sim.py" beforeDir="false" afterPath="$PROJECT_DIR$/bd/bd_sim.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bd/calc_force.py" beforeDir="false" afterPath="$PROJECT_DIR$/bd/calc_force.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bd/find_parameters.py" beforeDir="false" afterPath="$PROJECT_DIR$/bd/find_parameters.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/twlc_sim.py" beforeDir="false" afterPath="$PROJECT_DIR$/twlc_sim.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/init_cond.py" beforeDir="false" afterPath="$PROJECT_DIR$/util/init_cond.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1ePatJIvrumQpgnYn9NFzk2PBf2" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../github/normal_mode_analysis/chaingrowth.py" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\tsear\Documents\School\Spakowitz\github\normal_mode_analysis" />
+      <recent name="C:\Users\tsear\Documents\School\Spakowitz\chaingrowth" />
+      <recent name="C:\Users\tsear\Documents\School\Spakowitz" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.normal_mode_correlation">
+    <configuration name="chaingrowth" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="twlcsim" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\tsear\Anaconda3\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../../github/normal_mode_analysis" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../../github/normal_mode_analysis/chaingrowth.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="normal_mode test" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="twlcsim" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\tsear\Anaconda3\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../.." />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../../normal_mode test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="normal_mode_correlation" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="twlcsim" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../../github/normal_mode_analysis" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../../github/normal_mode_analysis/normal_mode_correlation.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="normal_mode_correlation_original" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="twlcsim" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\tsear\Anaconda3\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../.." />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../../normal_mode_correlation_original.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.normal_mode_correlation" />
+      <item itemvalue="Python.chaingrowth" />
+      <item itemvalue="Python.normal_mode_correlation_original" />
+      <item itemvalue="Python.normal_mode test" />
+    </list>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="dffe23b4-8bea-47ca-a3e9-1d4cc6547c09" name="Default Changelist" comment="" />
+      <created>1594225894446</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1594225894446</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606175379767">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1606175379767" />
+    <state x="509" y="91" key="EnvironmentVariablesDialog" timestamp="1604271206826">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="509" y="91" key="EnvironmentVariablesDialog/0.0.1280.680@0.0.1280.680" timestamp="1604271206826" />
+    <state x="183" y="94" width="833" height="516" key="FileChooserDialogImpl" timestamp="1606773008440">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="183" y="94" width="833" height="516" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1606773008440" />
+    <state width="1259" height="131" key="GridCell.Tab.0.bottom" timestamp="1606944414809">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1259" height="131" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1606944414809" />
+    <state width="1259" height="131" key="GridCell.Tab.0.center" timestamp="1606944414808">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1259" height="131" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1606944414808" />
+    <state width="1259" height="131" key="GridCell.Tab.0.left" timestamp="1606944414808">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1259" height="131" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1606944414808" />
+    <state width="1259" height="131" key="GridCell.Tab.0.right" timestamp="1606944414808">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1259" height="131" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1606944414808" />
+    <state width="1259" height="204" key="GridCell.Tab.1.bottom" timestamp="1603604410467">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1259" height="204" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1603604410467" />
+    <state width="1259" height="204" key="GridCell.Tab.1.center" timestamp="1603604410467">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1259" height="204" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1603604410467" />
+    <state width="1259" height="204" key="GridCell.Tab.1.left" timestamp="1603604410467">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1259" height="204" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1603604410467" />
+    <state width="1259" height="204" key="GridCell.Tab.1.right" timestamp="1603604410467">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1259" height="204" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1603604410467" />
+    <state x="326" y="61" key="RollbackChangesDialog" timestamp="1604270268285">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="326" y="61" key="RollbackChangesDialog/0.0.1280.680@0.0.1280.680" timestamp="1604270268285" />
+    <state x="235" y="0" key="SettingsEditor" timestamp="1600194140392">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="235" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1600194140392" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1606602196235">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1606602196235" />
+  </component>
+</project>
