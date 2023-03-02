@@ -31,6 +31,9 @@ def main():
     loaded_file = np.genfromtxt(input_dir + "sim_input", comments='#', dtype=str)[12]
     output_dir = np.genfromtxt(input_dir + "sim_input", comments='#', dtype=str)[13]
 
+    if not from_file:
+        loaded_file='0'
+
     num_total= num_polymers * num_beads
     r_poly, t1_poly, t2_poly, t3_poly, twist_poly, force_active = init_cond(length, b, num_polymers, num_beads, force_active0, k_a, fl_only_tag, confinement_tag, a, from_file, loaded_file, input_dir)
 

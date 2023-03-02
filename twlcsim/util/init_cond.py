@@ -63,20 +63,10 @@ def init_cond(length, b, num_polymers, num_beads, force_active0, k_a, fl_only_ta
             else:
                 r_poly_n, force_active_n = gen_conf_rouse_active1(length, num_beads, ka=k_a, fa=force_active0, b=b, num_modes=10000)
             r_poly[n*num_beads:(n+1)*num_beads, :] = r_poly_n
-            force_active[n * num_beads:(n + 1) * num_beads, :] = force_active_n
-
-        if force_active0==0:
-            force_active = np.zeros((num_total, 3))
-
-        if fl_only_tag:
-            force_active_0 = np.zeros(force_active.shape)
-            force_active_0[fl_indices, :] = force_active[fl_indices, :]
-            force_active = force_active_0
-
-        # Active force: First and last beads only
-        #force_active_0= np.zeros(force_active.shape)
-        #force_active_0[fl_indices,:]= force_active[fl_indices,:]
-        #force_active= force_active_0
+            if force_active0 != 0:
+                if fl_only_tag:
+                    force_active_n[1:-1, :]= 0
+                force_active[n * num_beads:(n + 1) * num_beads, :] = force_active_n
 
     # Ensure the t vectors are orthonormal
     t1_poly, t2_poly, t3_poly = fix_t_vectors(t1_poly, t2_poly, t3_poly)
