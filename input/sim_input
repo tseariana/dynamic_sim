@@ -1,14 +1,14 @@
-10		# Number of polymer chains in simulation (num_polymers)
-86		# Number of beads in each polymer (num_beads)
-86	    	# Total length of chain in kuhn lengths(length)
+1		# Number of polymer chains in simulation (num_polymers)
+10		# Number of beads in each polymer (num_beads)
+10	    	# Total length of chain in kuhn lengths(length)
 1		# kuhn length (b) 250 nm
 True		# Is the polymer confined? (T or F)
 6		# Radius of boundary in kuhn lengths (a)
 0		# Active force scale (force_active0)
 1e-4		# Temporal relaxation rate (k_a)
 True		# Is the active force only on the first and last beads?
-1000000		# Number of BD conformations saved (num_save_bd)
+100		# Number of BD conformations saved (num_save_bd)
 .01		# Time between save points (time_save_bd)
 False	        # Set to true if loading from a file (from_file)
-9934		# Loaded file
+0		# Loaded file
 ../output	# Output directory location (output_dir)

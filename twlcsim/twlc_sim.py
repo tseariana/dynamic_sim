@@ -63,14 +63,27 @@ def save_file(r_poly, t1_poly, t2_poly, t3_poly, force_active, file_count, loade
     home_dir : Path
     """
     home_dir = Path(home_dir)
-    conformations = {f"r_poly_{str(int(loaded_file)+int(file_count))}": r_poly,
-                     f"t1_poly_{str(int(loaded_file)+int(file_count))}": t1_poly,
-                     f"t2_poly_{str(int(loaded_file)+int(file_count))}": t2_poly,
-                     f"t3_poly_{str(int(loaded_file)+int(file_count))}": t3_poly,
-                     f"force_active_{str(int(loaded_file)+int(file_count))}": force_active
-                    } #f"force_boundary_{str(int(file_count))}": force_boundary
-    for name, data in conformations.items():
-        np.savetxt(home_dir / Path(name), data, delimiter=',')
+    LABELS_position= np.array(([['Position', 'Position', 'Position', 't1', 't1', 't1', 't2', 't2', 't2','t3', 't3', 't3'],['x','y','z','x','y','z','x','y','z','x','y','z']]))
+    LABELS_force= np.array(([['Active force', 'Active force', 'Active force'],['x', 'y','z']]))
+
+    pos_file= np.hstack((r_poly,t1_poly,t2_poly,t3_poly))
+    labeled_pos_file= np.vstack((LABELS_position,pos_file))
+
+    labeled_force_file= np.vstack((LABELS_force,force_active))
+
+    #conformations = {f"r_poly_{str(int(loaded_file)+int(file_count))}": r_poly,
+                     #f"t1_poly_{str(int(loaded_file)+int(file_count))}": t1_poly,
+                     #f"t2_poly_{str(int(loaded_file)+int(file_count))}": t2_poly,
+                     #f"t3_poly_{str(int(loaded_file)+int(file_count))}": t3_poly,
+                     #f"force_active_{str(int(loaded_file)+int(file_count))}": force_active
+                    #} #f"force_boundary_{str(int(file_count))}": force_boundary
+    pos_name= 'pos_file_'+ str(int(loaded_file)+int(file_count))
+    fa_name= 'fa_file_'+ str(int(loaded_file)+int(file_count))
+
+    np.savetxt(home_dir/Path(pos_name), labeled_pos_file, delimiter=',', fmt='%s')
+    np.savetxt(home_dir/Path(fa_name), labeled_force_file, delimiter= ',', fmt='%s')
+    #for name, data in conformations.items():
+    #    np.savetxt(home_dir / Path(name), data, delimiter=',')
 
 
 if __name__ == "__main__":
