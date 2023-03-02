@@ -27,11 +27,18 @@ def init_cond(length, b, num_polymers, num_beads, force_active0, k_a, fl_only_ta
 
     if from_file:
         print("Initialize from saved conformation")
-        r_poly = np.loadtxt(input_dir + "r_poly_" + loaded_file, delimiter=',')
-        t1_poly = np.loadtxt(input_dir + "t1_poly_" + loaded_file, delimiter=',')
-        t2_poly = np.loadtxt(input_dir + "t2_poly_" + loaded_file, delimiter=',')
-        t3_poly = np.loadtxt(input_dir + "t3_poly_" + loaded_file, delimiter=',')
-        force_active = np.loadtxt(input_dir + "force_active_" + loaded_file, delimiter=',')
+        file =  np.loadtxt(input_dir + 'pos_file_' + loaded_file, delimiter=',', skiprows=2)
+        r_poly= file[:,0:3]
+        t1_poly=file[:,3:6]
+        t2_poly= file[:,6:9]
+        t3_poly= file[:,9:12]
+        force_active= np.loadtxt(input_dir + 'fa_file_' + loaded_file, delimiter=',', skiprows=2)
+
+        #r_poly = np.loadtxt(input_dir + "r_poly_" + loaded_file, delimiter=',')
+        #t1_poly = np.loadtxt(input_dir + "t1_poly_" + loaded_file, delimiter=',')
+        #t2_poly = np.loadtxt(input_dir + "t2_poly_" + loaded_file, delimiter=',')
+        #t3_poly = np.loadtxt(input_dir + "t3_poly_" + loaded_file, delimiter=',')
+        #force_active = np.loadtxt(input_dir + "force_active_" + loaded_file, delimiter=',')
     else:
         print("Initialize from random conformation")
 
