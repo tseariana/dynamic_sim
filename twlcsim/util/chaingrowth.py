@@ -25,6 +25,7 @@ def random_walk_gauss_chain(length, beads, kuhn_length=1):
     r_poly = np.cumsum(r_poly_step, axis=0)
     return r_poly
 
+
 def gen_rouse_active(length_kuhn, num_beads, ka=1, fa=0, b=1, num_modes=10000):
     r"""
     Generate a discrete chain based on the active-Brownian Rouse model
@@ -89,6 +90,7 @@ def confined_linear_chain(length, num_beads, a, fa=0):
     f_active = fa * np.random.randn(num_beads, 3)
 
     return r_poly, f_active
+
 
 def confined_chain(length, num_beads, a, fa=0):
     r"""

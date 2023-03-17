@@ -42,6 +42,7 @@ def main():
                                                                             confinement_tag, confinement_radius, from_file,
                                                                             loaded_file, input_dir)
 
+    # ------------------------------------------------------------------------------------------------------------------
     # Perform the Brownian dynamics simulation
     for bd_count in range(1, num_save_bd + 1):
         r_poly, t1_poly, t2_poly, t3_poly, twist_poly, time_save_actual, force_active = bd_sim(r_poly, t1_poly, t2_poly, t3_poly, twist_poly,
