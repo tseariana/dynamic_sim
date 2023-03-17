@@ -16,7 +16,7 @@ def random_walk_gauss_chain(length, beads, kuhn_length=1):
     # initialize r_poly
     r_poly = np.zeros((beads, 3))
 
-    # array of gaussian distributed step sizes/distance between beads
+    # array of gaussian distributed step sizegis/distance between beads
     variance = (kuhn_length ** 2) * length / (beads - 1)
     r_poly_step = (1 / (np.sqrt(3))) * np.random.normal(loc=0, scale=np.sqrt(variance), size=(beads, 3))
     r_poly_step[0] = np.zeros((1, 3))  # maintain first bead at origin
@@ -25,7 +25,7 @@ def random_walk_gauss_chain(length, beads, kuhn_length=1):
     r_poly = np.cumsum(r_poly_step, axis=0)
     return r_poly
 
-def gen_conf_rouse_active1(length_kuhn, num_beads, ka=1, fa=0, b=1, num_modes=10000):
+def gen_rouse_active(length_kuhn, num_beads, ka=1, fa=0, b=1, num_modes=10000):
     r"""
     Generate a discrete chain based on the active-Brownian Rouse model
 
@@ -69,47 +69,6 @@ def gen_conf_rouse_active1(length_kuhn, num_beads, ka=1, fa=0, b=1, num_modes=10
 
     return r_poly, f_active
 
-def gen_conf_rouse_active2(length_kuhn, num_beads, ka=1, fa=0, b=1, num_modes=10000):
-    r"""
-    WRONG!!!!!!!
-    Generate a discrete chain based on the active-Brownian Rouse model
-
-    Parameters
-    ----------
-    length_kuhn : float
-        Length of the chain (in Kuhn segments)
-    num_beads : int
-        Number of beads in the discrete chain
-    ka : float
-        Active force rate constant
-    gamma : float
-        Magnitude of the active forces
-    b : float
-        Kuhn length
-    num_modes : int
-        Number of Rouse modes in calculation
-
-    Returns
-    -------
-    r_poly : (num_beads, 3) float
-        Conformation of the chain subjected to active-Brownian forces
-
-    """
-    gamma= fa**2/ka
-    r_poly = np.zeros((num_beads, 3))
-    k1 = 3 * np.pi ** 2 / (length_kuhn * (b ** 2))
-    ind = np.arange(num_beads)
-
-    for p in range(1, num_modes + 1):
-        kp = k1 * p ** 2
-        xp_mag = np.sqrt(1 / kp * (1 + gamma * ka / (ka + k1 * (b ** 2) / length_kuhn)))
-        xp = np.random.randn(3) * xp_mag
-        phi = np.sqrt(2 / length_kuhn) * np.cos(p * np.pi * ind / (num_beads - 1))
-        r_poly += np.outer(phi, xp)
-
-    f_active = fa * np.random.randn(num_beads, 3)
-
-    return r_poly, f_active
 
 def confined_linear_chain(length, num_beads, a, fa=0):
     r"""
@@ -131,7 +90,7 @@ def confined_linear_chain(length, num_beads, a, fa=0):
 
     return r_poly, f_active
 
-def confined_chain(length,num_beads, a, fa=0):
+def confined_chain(length, num_beads, a, fa=0):
     r"""
     Generates random walk Gaussian chain
     :param length:   float

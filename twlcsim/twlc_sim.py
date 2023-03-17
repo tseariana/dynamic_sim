@@ -6,10 +6,12 @@ from pathlib import Path
 import numpy as np
 
 from util.init_cond import init_cond
-from util.calc_writhe import calc_writhe
-from util.calc_twist import calc_twist
 from bd.bd_sim import bd_sim
 
+# --------------- Required for worm-like chain ------------------------
+# from util.calc_writhe import calc_writhe
+# from util.calc_twist import calc_twist
+# ---------------------------------------------------------------------
 
 def main():
     """Show example of BD simulation code usage."""
@@ -21,7 +23,7 @@ def main():
     length = np.genfromtxt(input_dir + "sim_input", comments='#', dtype=float)[2]
     b= np.genfromtxt(input_dir + "sim_input", comments='#', dtype=float)[3]
     confinement_tag = np.genfromtxt(input_dir + "sim_input", comments='#', dtype=bool)[4]
-    a = np.genfromtxt(input_dir + "sim_input", comments='#', dtype=float)[5]
+    confinement_radius = np.genfromtxt(input_dir + "sim_input", comments='#', dtype=float)[5]
     force_active0 = np.genfromtxt(input_dir + "sim_input", comments='#', dtype=float)[6]
     k_a = np.genfromtxt(input_dir + "sim_input", comments='#', dtype=float)[7]
     fl_only_tag = np.genfromtxt(input_dir + "sim_input", comments='#', dtype=bool)[8]
@@ -34,18 +36,24 @@ def main():
     if not from_file:
         loaded_file='0'
 
-    num_total= num_polymers * num_beads
-    r_poly, t1_poly, t2_poly, t3_poly, twist_poly, force_active = init_cond(length, b, num_polymers, num_beads, force_active0, k_a, fl_only_tag, confinement_tag, a, from_file, loaded_file, input_dir)
+    # Initialize starting polymer configuration
+    r_poly, t1_poly, t2_poly, t3_poly, twist_poly, force_active = init_cond(length, b, num_polymers, num_beads,
+                                                                            force_active0, k_a, fl_only_tag,
+                                                                            confinement_tag, confinement_radius, from_file,
+                                                                            loaded_file, input_dir)
 
     # Perform the Brownian dynamics simulation
     for bd_count in range(1, num_save_bd + 1):
-        r_poly, t1_poly, t2_poly, t3_poly, twist_poly, time_save_actual, force_active = bd_sim(
-            r_poly, t1_poly, t2_poly, t3_poly, twist_poly,
-            num_polymers, num_beads, length, b, confinement_tag, a, force_active0, force_active, k_a, fl_only_tag, time_save_bd)
+        r_poly, t1_poly, t2_poly, t3_poly, twist_poly, time_save_actual, force_active = bd_sim(r_poly, t1_poly, t2_poly, t3_poly, twist_poly,
+                                                                                               num_polymers, num_beads, length, b,
+                                                                                               confinement_tag, confinement_radius, force_active0, force_active, k_a,
+                                                                                               fl_only_tag, time_save_bd)
         save_file(r_poly, t1_poly, t2_poly, t3_poly, force_active, bd_count, loaded_file, output_dir)
-        writhe = calc_writhe(r_poly, num_polymers, num_beads)
-        twist = calc_twist(twist_poly, num_polymers, num_beads)
-#       print("twist = " + str(twist) + ", writhe = " + str(writhe) + ", Linking number = " + str(twist + writhe))
+
+        # ------------Required for worm-like chain-------------------------------------------------------------
+        # writhe = calc_writhe(r_poly, num_polymers, num_beads)
+        # twist = calc_twist(twist_poly, num_polymers, num_beads)
+        # -----------------------------------------------------------------------------------------------------
 
         print("Save point " + str(int(loaded_file)+bd_count) + " completed")
 
@@ -70,24 +78,15 @@ def save_file(r_poly, t1_poly, t2_poly, t3_poly, force_active, file_count, loade
     LABELS_force= np.array(([['Active force', 'Active force', 'Active force'],['x', 'y','z']]))
 
     pos_file= np.hstack((r_poly,t1_poly,t2_poly,t3_poly))
-    labeled_pos_file= np.vstack((LABELS_position,pos_file))
 
+    labeled_pos_file= np.vstack((LABELS_position,pos_file))
     labeled_force_file= np.vstack((LABELS_force,force_active))
 
-    #conformations = {f"r_poly_{str(int(loaded_file)+int(file_count))}": r_poly,
-                     #f"t1_poly_{str(int(loaded_file)+int(file_count))}": t1_poly,
-                     #f"t2_poly_{str(int(loaded_file)+int(file_count))}": t2_poly,
-                     #f"t3_poly_{str(int(loaded_file)+int(file_count))}": t3_poly,
-                     #f"force_active_{str(int(loaded_file)+int(file_count))}": force_active
-                    #} #f"force_boundary_{str(int(file_count))}": force_boundary
     pos_name= 'pos_file_'+ str(int(loaded_file)+int(file_count))
     fa_name= 'fa_file_'+ str(int(loaded_file)+int(file_count))
 
     np.savetxt(home_dir/Path(pos_name), labeled_pos_file, delimiter=',', fmt='%s')
     np.savetxt(home_dir/Path(fa_name), labeled_force_file, delimiter= ',', fmt='%s')
-    #for name, data in conformations.items():
-    #    np.savetxt(home_dir / Path(name), data, delimiter=',')
-
 
 if __name__ == "__main__":
     main()
