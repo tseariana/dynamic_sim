@@ -70,7 +70,7 @@ def gen_rouse_active(length_kuhn, num_beads, ka=1, fa=0, b=1, num_modes=10000):
     return r_poly, f_active
 
 
-def confined_linear_chain(num_beads, a, fa=0):
+def confined_linear_chain(length, num_beads, a, fa=0):
     r"""
     Generates random walk Gaussian chain
     :param length:   float
@@ -90,7 +90,7 @@ def confined_linear_chain(num_beads, a, fa=0):
 
     return r_poly, f_active
 
-def confined_chain(num_beads, a, fa=0):
+def confined_chain(length, num_beads, a, fa=0):
     r"""
     Generates random walk Gaussian chain
     :param length:   float
