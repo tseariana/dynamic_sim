@@ -54,7 +54,7 @@ def init_cond(length, b, num_polymers, num_beads, force_active0, k_a, fl_only_ta
                 r_poly_n, force_active_n = confined_chain(length, num_beads, a, fa=force_active0)
             else:
                 print('Generating unconfined chain')
-                r_poly_n, force_active_n = gen_conf_rouse_active(length, num_beads, ka=k_a, fa=force_active0, b=b, num_modes=10000)
+                r_poly_n, force_active_n = gen_rouse_active(length, num_beads, ka=k_a, fa=force_active0, b=b, num_modes=10000)
 
             r_poly[n*num_beads:(n+1)*num_beads, :] = r_poly_n
             if force_active0 != 0:
