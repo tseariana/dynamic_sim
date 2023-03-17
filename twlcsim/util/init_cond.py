@@ -9,8 +9,7 @@ The initial condition can be set using two options:
 """
 import numpy as np
 from .chaingrowth import random_walk_gauss_chain
-from .chaingrowth import gen_conf_rouse_active1
-from .chaingrowth import gen_conf_rouse_active2
+from .chaingrowth import gen_rouse_active
 from .chaingrowth import confined_linear_chain
 from .chaingrowth import confined_chain
 from ._vector import fix_t_vectors
@@ -20,11 +19,14 @@ def init_cond(length, b, num_polymers, num_beads, force_active0, k_a, fl_only_ta
     """Create num_polymer of num_beads each either from_file or randomly."""
     num_total = num_polymers * num_beads  # Total number of beads
 
-    linking_number = 0
-    length_bead = length / (num_beads-1)
-    lp_dna = 53     # Persistence length of DNA in nm
-    length_dim = length_bead * 0.34 / lp_dna        # Non-dimensionalized length per bead
+    # ---------------------Required for worm-like chain--------------------------------------
+    # linking_number = 0
+    # length_bead = length / (num_beads-1)
+    # lp_dna = 53     # Persistence length of DNA in nm
+    # length_dim = length_bead * 0.34 / lp_dna        # Non-dimensionalized length per bead
+    # --------------------------------------------------------------------------------------
 
+    # Load confirmation from existing file
     if from_file:
         print("Initialize from saved conformation")
         file =  np.loadtxt(input_dir + 'pos_file_' + loaded_file, delimiter=',', skiprows=2)
@@ -34,14 +36,9 @@ def init_cond(length, b, num_polymers, num_beads, force_active0, k_a, fl_only_ta
         t3_poly= file[:,9:12]
         force_active= np.loadtxt(input_dir + 'fa_file_' + loaded_file, delimiter=',', skiprows=2)
 
-        #r_poly = np.loadtxt(input_dir + "r_poly_" + loaded_file, delimiter=',')
-        #t1_poly = np.loadtxt(input_dir + "t1_poly_" + loaded_file, delimiter=',')
-        #t2_poly = np.loadtxt(input_dir + "t2_poly_" + loaded_file, delimiter=',')
-        #t3_poly = np.loadtxt(input_dir + "t3_poly_" + loaded_file, delimiter=',')
-        #force_active = np.loadtxt(input_dir + "force_active_" + loaded_file, delimiter=',')
+    # Generate new confirmations
     else:
         print("Initialize from random conformation")
-
         r_poly = np.zeros((num_total, 3), 'd')
         t1_poly = np.zeros((num_total, 3), 'd')
         t2_poly = np.zeros((num_total, 3), 'd')
@@ -51,17 +48,14 @@ def init_cond(length, b, num_polymers, num_beads, force_active0, k_a, fl_only_ta
         t2_poly[:, 1] = 1
         t3_poly[:, 2] = 1
 
-        first_bead_indices= np.arange(0, num_total, num_beads)
-        last_bead_indices= np.arange(num_beads-1, num_total, num_beads)
-        fl_indices= np.append(first_bead_indices, last_bead_indices)
-
-        # USING CHAINGROWTH.PY
         for n in range(0, num_polymers):
             if confinement_tag:
-                print('Confined')
+                print('Generating confined chain')
                 r_poly_n, force_active_n = confined_chain(length, num_beads, a, fa=force_active0)
             else:
-                r_poly_n, force_active_n = gen_conf_rouse_active1(length, num_beads, ka=k_a, fa=force_active0, b=b, num_modes=10000)
+                print('Generating unconfined chain')
+                r_poly_n, force_active_n = gen_conf_rouse_active(length, num_beads, ka=k_a, fa=force_active0, b=b, num_modes=10000)
+
             r_poly[n*num_beads:(n+1)*num_beads, :] = r_poly_n
             if force_active0 != 0:
                 if fl_only_tag:
@@ -72,11 +66,28 @@ def init_cond(length, b, num_polymers, num_beads, force_active0, k_a, fl_only_ta
     t1_poly, t2_poly, t3_poly = fix_t_vectors(t1_poly, t2_poly, t3_poly)
 
     # Calculate the twist angle at each bead
+    twist_poly= calc_bead_twist(num_total, num_polymers, num_beads, t1_poly, t2_poly)
+
+    return r_poly, t1_poly, t2_poly, t3_poly, twist_poly, force_active
+
+def calc_bead_twist(num_total, num_polymers, num_beads, t1_poly, t2_poly):
+    """
+    Calculate the bead twist. Used for worm-like chain
+
+    input:  num_total       Total number of beads (length num_beads * num_polymers)
+            num_polymers    Number of polymer chains
+            num_beads       Number of beads in each polymer
+            t1_poly         t1 direction vector (num_total * 3)
+            t2_poly         t2 direction vector (num_total * 3)
+
+    output: twist_poly      Vector for amount of twist of each bead (num_total * 1)
+
+    """
     twist_poly = np.zeros((num_total, 1), 'd')
+
     for i_poly in range(num_polymers):
         ind0 = num_beads * i_poly
         indf = ind0 + num_beads
-
         t1_poly_plus1 = shift_vector(t1_poly, 1, num_beads, i_poly)
         t2_poly_plus1 = shift_vector(t2_poly, 1, num_beads, i_poly)
         t1_dot_t1plus1 = np.sum(t1_poly_plus1 * t1_poly[ind0:indf, :], axis=1)
@@ -84,8 +95,7 @@ def init_cond(length, b, num_polymers, num_beads, force_active0, k_a, fl_only_ta
         t2_dot_t1plus1 = np.sum(t1_poly_plus1 * t2_poly[ind0:indf, :], axis=1)
         t2_dot_t2plus1 = np.sum(t2_poly_plus1 * t2_poly[ind0:indf, :], axis=1)
         twist_poly[ind0:indf, 0] = np.arctan2(t2_dot_t1plus1 - t1_dot_t2plus1, t1_dot_t1plus1 + t2_dot_t2plus1)
-
-    return r_poly, t1_poly, t2_poly, t3_poly, twist_poly, force_active
+    return twist_poly
 
 
 def shift_vector(a, shift_index, num_beads, i_poly):
