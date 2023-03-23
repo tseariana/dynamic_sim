@@ -1,6 +1,17 @@
 import numpy as np
 
 def calc_boundary_force(r_poly, num_polymers, num_beads, a, epsilon):
+    """
+    Calculate forces induced by spherical confinement
+
+    :param r_poly: position vector of all beads in simulation (num_total,3)
+    :param num_polymers: Number of polymers in simulation
+    :param num_beads: Number of beads in each polymer
+    :param a: Radius of spherical confinement
+    :param epsilon: Mathematical constant to deal with near 0 numerical instabilities
+
+    :return: force_boundary: Vector of forces induced by confinement (num_total, 3)
+    """
     ## Initialize force boundary array
     num_total= num_beads*num_polymers
     force_boundary = np.zeros((num_total, 3))
