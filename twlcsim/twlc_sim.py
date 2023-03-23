@@ -36,6 +36,14 @@ def main():
     if not from_file:
         loaded_file='0'
 
+    assert num_polymers > 0
+    assert num_beads > 0
+    assert length > 0
+    assert b > 0
+    assert confinment_radius > 0
+    assert num_save_bd > 0
+    assert time_save_bd > 0
+    
     # Initialize starting polymer configuration
     r_poly, t1_poly, t2_poly, t3_poly, twist_poly, force_active = init_cond(length, b, num_polymers, num_beads,
                                                                             force_active0, k_a, fl_only_tag,

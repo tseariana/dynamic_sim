@@ -1,8 +1,7 @@
 """Routines for performing Brownian dynamics simulations."""
 
 import numpy as np
-import time as tm
-from bd.calc_force import calc_force
+from bd.calc_internal_force import calc_internal_force
 from bd.find_parameters import find_parameters
 from util._vector import fix_t_vectors
 from bd.calc_boundary_force import calc_boundary_force
@@ -44,7 +43,7 @@ def bd_sim(r_poly, t1_poly, t2_poly, t3_poly, twist_poly, num_polymers, num_bead
 
 
         # Calculate internal force
-        force_pot, torque_1_pot, torque_2_pot, torque_3_pot = calc_force(r_poly, t1_poly, t2_poly, t3_poly, twist_poly, num_polymers, num_beads, sim_type,
+        force_pot, torque_1_pot, torque_2_pot, torque_3_pot = calc_internal_force(r_poly, t1_poly, t2_poly, t3_poly, twist_poly, num_polymers, num_beads, sim_type,
                                                                          eps_bend, eps_par, eps_perp, eps_twist,
                                                                          gamma, eta)
 
