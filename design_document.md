@@ -11,22 +11,22 @@ The existing Rouse model dynamic simulator is the product of iterative editing f
 Lastly, active polymers have been a significant interest in the polymer physics community. Therefore, we want the dynamic simulator to adopt a framework that allows easy manipulation of active forces. That is, we want the ability to specify and call different active force descriptions (for example: temporally-correlated, spatially-correlated, Gaussian-distributed, etc.) While not all of these descriptions will be developed for this project, we will ensure that to active force code is designed to be modular so that any force description can be added with ease. 
 
 ### Goals:
-•	Encapsulate dependencies in virtual environment
-•	Make output compatible with Chromo-Analysis
-•	Modularity of dynamics controller (forward-integrations, force calculations etc.)
-•	Increased commenting and documentations
-•	Establish active force code framework
+*	Encapsulate dependencies in virtual environment
+*	Make output compatible with Chromo-Analysis
+*	Modularity of dynamics controller (forward-integrations, force calculations etc.)
+*	Increased commenting and documentations
+*	Establish active force code framework
 
 ### Non-goals:
-•	Defining a multitude of active force descriptions
-•	Speeding up simulation code
-•	Developing new features (For example: worm-like chain model)
-•	Sphinx documentation (Goal eventually, just not for this class project)
-•	Using objects and classes (Goal eventually! Especially using Chromo class definitions! Unfortunately I don’t know how to use classes just yet, so we will not be doing that for this project. However, the code framework will be designed so that it’s easy to pass through a polymer object through once we’re ready to implement object-oriented programming.
+*	Defining a multitude of active force descriptions
+*	Speeding up simulation code
+*	Developing new features (For example: worm-like chain model)
+*	Sphinx documentation (Goal eventually, just not for this class project)
+*	Using objects and classes (Goal eventually! Especially using Chromo class definitions! Unfortunately I don’t know how to use classes just yet, so we will not be doing that for this project. However, the code framework will be designed so that it’s easy to pass through a polymer object through once we’re ready to implement object-oriented programming.
 
 ### Future Goals:
-•	Sphinx documentation
-•	Object oriented programming
+*	Sphinx documentation
+*	Object oriented programming
 
 ### Detailed Design:
 
