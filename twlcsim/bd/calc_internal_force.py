@@ -2,7 +2,7 @@
 import numpy as np
 
 
-def calc_force(r_poly, t1_poly, t2_poly, t3_poly, twist_poly, num_polymers, num_beads,
+def calc_internal_force(r_poly, t1_poly, t2_poly, t3_poly, twist_poly, num_polymers, num_beads,
                                  sim_type, eps_bend, eps_par, eps_perp, eps_twist, gamma, eta):
     """Compute default forces (to be used by __main__)."""
 #    force_elas, torque_1_elas, torque_2_elas, torque_3_elas = calc_force_elas(
@@ -42,18 +42,6 @@ def calc_force_elas_only(r_poly, t1_poly, t2_poly, t3_poly, twist_poly, num_poly
     force_elas_only[ind0,:] = eps_par * (r_poly[(ind0+1),:]-r_poly[ind0, :])
     force_elas_only[indf,:] = -eps_par * (r_poly[indf,:]-r_poly[(indf-1), :])
 
-    #for i_poly in range(num_polymers):
-    #    ind0 = num_beads * i_poly
-    #    indf = ind0 + num_beads
-
-    #    r_poly_plus_1 = shift_vector(r_poly, 1, num_beads, i_poly)
-    #    r_poly_minus_1= shift_vector(r_poly, -1, num_beads, i_poly)
-    #    r_poly_n= r_poly[ind0:indf, :]
-    #    force_elas_only[(ind0+1):(indf-1), :] = eps_par*(r_poly_plus_1[1:(num_beads-1), :] - 2 * r_poly_n[1:(num_beads-1), :] +
-                                           #r_poly_minus_1[1:(num_beads-1), :])
-    #    force_elas_only[ind0, :] = eps_par*(r_poly_plus_1[0, :]-r_poly_n[0, :])
-    #    force_elas_only[indf-1, :] = -eps_par*(r_poly_n[(num_beads-1), :]-r_poly_minus_1[(num_beads-1), :])
-
     return force_elas_only, torque_1_elas, torque_2_elas, torque_3_elas
 
 def calc_force_elas(r_poly, t1_poly, t2_poly, t3_poly, twist_poly, num_polymers,
@@ -77,7 +65,7 @@ def calc_force_elas(r_poly, t1_poly, t2_poly, t3_poly, twist_poly, num_polymers,
 
 #        t1_poly_plus1 = shift_vector(t1_poly, 1, num_beads, i_poly)
 #        t2_poly_plus1 = shift_vector(t2_poly, 1, num_beads, i_poly)
-        t3_poly_plus1 = shift_vector(t3_poly, 1, num_beads, i_poly)
+#        t3_poly_plus1 = shift_vector(t3_poly, 1, num_beads, i_poly)
 #        t1_poly_minus1 = shift_vector(t1_poly, -1, num_beads, i_poly)
 #        t2_poly_minus1 = shift_vector(t2_poly, -1, num_beads, i_poly)
 #        t3_poly_minus1 = shift_vector(t3_poly, -1, num_beads, i_poly)
