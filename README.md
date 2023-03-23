@@ -19,7 +19,7 @@ For details of the project, please see the design document in `design_document.m
 
 2. Open the 'sim_input file'. Specify desired parameters. Note: If loading from previous configuration, position vector file (pos_file_#) and its corresponding active force file (fa_file_#) must be in the input folder. Save any changes.
 
-3. Exit input folder with 'cd ..' and enter twlcsim folder with `cd twlcsim`.
+3. Exit input folder with `cd ..` and enter twlcsim folder with `cd twlcsim`.
 
 4. Run simulation using `python3 twlcsim.py`.
 
